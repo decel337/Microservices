@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: parking
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: parking
+  template:
+    metadata:
+      labels:
+        app: parking
+    spec:
+      containers:
+        - image: your_nick/parking #docker build ... -> build project and push on docker hub, after he download.
+          imagePullPolicy: Always #Set 'never', because Docker Hub restricted access from Donetsk region, and
+          #i'm download image by hand. You can leave 'Always' if don't have problems.
+          name: parking
+          ports:
+            - containerPort: 8080
