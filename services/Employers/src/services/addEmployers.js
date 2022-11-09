@@ -1,5 +1,5 @@
 const addEmployers = async (name, post) => {
-    return {employer_id: '10',
+    return {employer_id: 10,
     name,
     post};
 };
