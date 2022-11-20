@@ -13,8 +13,8 @@ spec:
         app: rooms
     spec:
       containers:
-        - image: your_nick/rooms #docker build ... -> build project and push on docker hub, after he download.
-          imagePullPolicy: Always #Set 'never', because Docker Hub restricted access from Donetsk region, and
+        - image: decel337/rooms #docker build ... -> build project and push on docker hub, after he download.
+          imagePullPolicy: Never #Set 'never', because Docker Hub restricted access from Donetsk region, and
             #i'm download image by hand. You can leave 'Always' if don't have problems.
           name: rooms
           ports:

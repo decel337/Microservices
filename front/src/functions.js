@@ -14,13 +14,12 @@ document.getElementById("ButtonRoomsAdd").addEventListener("click", AddRooms);
 document.getElementById("ButtonRoomsDelete").addEventListener("click", DeleteRooms);
 document.getElementById("ButtonRoomsUpdate").addEventListener("click", UpdateRooms);
 
-const connect = 'http://localhost:8080/api/v1/'
+const connect = '/api/v1/'
 
 //------------------------EMPLOYERS-----------------------
 
 async function GetEmployers(e) {
     e.preventDefault()
-    console.log("??")
     var output = document.getElementById("outputGet")
 
     fetch(connect+'employers', {
