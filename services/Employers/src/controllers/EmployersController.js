@@ -18,7 +18,6 @@ class EmployersController {
     async addEmployer(req, res) {
         try {
             const {name, post} = req.body;
-
             const employerSlot = await addEmployers(name, post);
             res.status(200).json(employerSlot);
         } catch (err) {

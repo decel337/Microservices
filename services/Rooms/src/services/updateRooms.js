@@ -1,5 +1,6 @@
-const updateRooms = async (id, busy) => {
+const updateRooms = async (id,level, busy) => {
     return {id,
+        level,
         busy};
 };
 

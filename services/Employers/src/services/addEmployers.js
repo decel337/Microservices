@@ -1,7 +1,7 @@
 const addEmployers = async (name, post) => {
     return {employer_id: 10,
-    name,
-    post};
+    name: name,
+    post: post};
 };
 
 module.exports = addEmployers;

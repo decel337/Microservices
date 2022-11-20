@@ -1,5 +1,5 @@
 const deleteEmployers = async (id) => {
-    return {id,
+    return {employer_id: id,
         name: 'Amigo',
         post: 'Cleaner'};
 };

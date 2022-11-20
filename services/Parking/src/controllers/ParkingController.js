@@ -17,9 +17,9 @@ class ParkingController {
 
     async addParking(req, res) {
         try {
-            const {name, post} = req.body;
+            const {name, owner} = req.body;
 
-            const parking = await addParking(name, post);
+            const parking = await addParking(name, owner);
             res.status(200).json(parking);
         } catch (err) {
             res.status(400).send();
@@ -39,9 +39,9 @@ class ParkingController {
     async updateParking(req, res) {
         try {
             const {id} = req.params
-            const {name, post} = req.body;
+            const {name, owner} = req.body;
 
-            const parking = await updateParking(id, name, post);
+            const parking = await updateParking(id, name, owner);
             res.status(200).json(parking);
         } catch (err) {
             res.status(400).send();
