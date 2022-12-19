@@ -18,8 +18,8 @@ class EmployersController {
     async addEmployer(req, res) {
         try {
             const {name, post} = req.body;
-            const employerSlot = await addEmployers(name, post);
-            res.status(200).json(employerSlot);
+            const employer = await addEmployers(name, post);
+            res.status(200).json(employer);
         } catch (err) {
             res.status(400).send();
         }
@@ -40,8 +40,8 @@ class EmployersController {
             const {id} = req.params
             const {name, post} = req.body;
 
-            const employerSlot = await updateEmployers(id, name, post);
-            res.status(200).json(employerSlot);
+            const employer = await updateEmployers(id, name, post);
+            res.status(200).json(employer);
         } catch (err) {
             res.status(400).send();
         }

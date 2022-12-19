@@ -18,3 +18,11 @@ spec:
           name: employers
           ports:
             - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: employers-service-config
+            - secretRef:
+                name: employers-service-secret
+          env:
+            - name: DB_URL
+              value: "$(DB_DIALECT)://$(POSTGRES_USER):$(POSTGRES_PASSWORD)@$(DB_HOST):$(DB_PORT)/$(POSTGRES_DB)"
