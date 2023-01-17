@@ -13,7 +13,7 @@ spec:
         app: front
     spec:
       containers:
-        - image: decel337/front
+        - image: frontend:2
           imagePullPolicy: Never
           name: front
           ports:

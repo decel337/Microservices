@@ -12,10 +12,23 @@ spec:
       labels:
         app: rooms
     spec:
+      initContainers:
+        - name: run-migrations
+          image: rooms-migrations:2
+          command: [ "npx", "knex", "migrate:latest" ]
+          envFrom:
+            - configMapRef:
+                name: rooms-config
+            - secretRef:
+                name: rooms-secret
       containers:
-        - image: decel337/rooms #docker build ... -> build project and push on docker hub, after he download.
+        - image: rooms-service:2 #docker build ... -> build project and push on docker hub, after he download.
           imagePullPolicy: Never #Set 'never', because Docker Hub restricted access from Donetsk region, and
-            #i'm download image by hand. You can leave 'Always' if don't have problems.
           name: rooms
           ports:
             - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: rooms-config
+            - secretRef:
+                name: rooms-secret

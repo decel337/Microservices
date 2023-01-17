@@ -11,7 +11,7 @@ app.use(cors())
 app.use(bodyParser.json());
 app.get(PREFIX + '/rooms', roomsController.getAll);
 app.delete(PREFIX + '/rooms/:id', roomsController.deleteRoom);
-app.put(PREFIX + '/rooms/:id', roomsController.updateRoom);
+app.patch(PREFIX + '/rooms/:id', roomsController.updateRoom);
 app.post(PREFIX + '/rooms', roomsController.addRoom);
 
 module.exports = app;

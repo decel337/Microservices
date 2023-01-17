@@ -1,7 +1,9 @@
+const db = require('../db');
+
 const deleteParking = async (id) => {
-    return {id,
-        name: 'Park 24/7',
-        owner: 'Corporation Navigation'};
+    return db('parking')
+        .where('id', id)
+        .del();
 };
 
 module.exports = deleteParking;
