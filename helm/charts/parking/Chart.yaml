@@ -1,0 +1,10 @@
+apiVersion: v2
+type: application
+version: 0.0.1
+name: parking
+appVersion: "0.1"
+description: "Parking service"
+dependencies:
+  - name: common
+    version: 0.0.1
+    repository: file://../common

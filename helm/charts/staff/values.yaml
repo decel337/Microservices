@@ -1,0 +1,36 @@
+replicaCount: 1
+
+service:
+  ports:
+    - name: http
+      port: 80
+      containerPort: 8080
+
+ingress:
+  path: /api/v1/staff
+  port: 80
+
+selector:
+  app: staff
+
+image:
+  name: staff-service
+  tag: 2
+
+config:
+  POSTGRES_DB: demo
+  POSTGRES_HOST: postgres
+
+secret:
+  POSTGRES_USER: demo
+  POSTGRES_PASSWORD: demo
+
+migrations:
+  image:
+    name: staff-migrations
+    tag: 2
+  config:
+    POSTGRES_DB: demo
+    POSTGRES_HOST: postgres
+    POSTGRES_USER: demo
+    POSTGRES_PASSWORD: demo
