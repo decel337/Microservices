@@ -17,6 +17,8 @@ spec:
       {{- include "common.selectorLabels" . | nindent 6 }}      # селектор по якому Deployment зв'язаний з Pod
   template:
     metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
       labels:
         {{- include "common.selectorLabels" . | nindent 8 }}        # мітка Pod по якому вона буде зв'язана з Deployment та Service
     spec:

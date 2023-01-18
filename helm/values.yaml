@@ -7,3 +7,10 @@ postgresql:
   persistence:
     size: 5Gi
     mountPath: /var/lib/postgresql/data
+
+kube-prometheus-stack:
+  prometheusOperator:
+    admissionWebhooks:
+      patch:
+        podAnnotations:
+          sidecar.istio.io/inject: "false"
