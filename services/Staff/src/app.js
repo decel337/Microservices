@@ -10,6 +10,7 @@ var cors = require('cors')
 app.use(cors())
 app.use(bodyParser.json());
 app.get(PREFIX + '/staff', staffController.getAll);
+app.get(PREFIX + '/staff/:id', staffController.getOne);
 app.delete(PREFIX + '/staff/:id', staffController.deleteStaff);
 app.patch(PREFIX + '/staff/:id', staffController.updateStaff);
 app.post(PREFIX + '/staff', staffController.addStaff);

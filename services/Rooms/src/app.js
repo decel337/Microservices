@@ -10,6 +10,7 @@ var cors = require('cors')
 app.use(cors())
 app.use(bodyParser.json());
 app.get(PREFIX + '/rooms', roomsController.getAll);
+app.get(PREFIX + '/rooms/:id', roomsController.getOne);
 app.delete(PREFIX + '/rooms/:id', roomsController.deleteRoom);
 app.patch(PREFIX + '/rooms/:id', roomsController.updateRoom);
 app.post(PREFIX + '/rooms', roomsController.addRoom);

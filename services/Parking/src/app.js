@@ -10,6 +10,7 @@ var cors = require('cors')
 app.use(cors())
 app.use(bodyParser.json());
 app.get(PREFIX + '/parking', parkingController.getAll);
+app.get(PREFIX + '/parking/:id', parkingController.getOne);
 app.delete(PREFIX + '/parking/:id', parkingController.deleteParking);
 app.patch(PREFIX + '/parking/:id', parkingController.updateParking);
 app.post(PREFIX + '/parking', parkingController.addParking);

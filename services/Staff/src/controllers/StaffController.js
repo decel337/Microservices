@@ -7,6 +7,20 @@ const updateStaff = require('../services/updateStaff');
 const getStaff = require('../services/getStaff');
 
 class StaffController {
+    async getOne(req, res) {
+        try {
+            const { id } = req.params
+            const [staff] = await getStaff(id);
+            if (staff) {
+                return res.json(staff);
+            } else {
+                res.status(404).json({ error: 'Staff not found' })
+            }
+        } catch (err) {
+            return res.status(400).send();
+        }
+    }
+
     async getAll(req, res) {
         try {
             const employers = await getAllStaff();

@@ -1,9 +1,9 @@
 apiVersion: v2
 type: application
 version: 0.0.1
-name: guests
+name: staff
 appVersion: "0.1"
-description: "Guests service"
+description: "Staff service"
 dependencies:
   - name: common
     version: 0.0.1

@@ -1,10 +1,10 @@
 const db = require('../db');
 
-const updateRooms = async (id, guestId) => {
+const updateRooms = async (id, floor, number, guestId) => {
     return db('rooms')
         .where('id', id)
         .update(
-            { guest_id: guestId },
+            { floor, number, guest_id: guestId },
             ['id', 'floor', 'number', 'guest_id']
         );
 };

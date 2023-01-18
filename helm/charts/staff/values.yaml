@@ -34,3 +34,16 @@ migrations:
     POSTGRES_HOST: postgres
     POSTGRES_USER: demo
     POSTGRES_PASSWORD: demo
+
+virtual:
+  timeout: 5s
+  retries:
+    attempts: 3
+    retryOn: 5xx
+    perTryTimeout: 5s
+
+destination:
+  consecutive5xxErrors: 5
+  interval: 10s
+  baseEjectionTime: 30s
+  maxEjectionPercent: 80

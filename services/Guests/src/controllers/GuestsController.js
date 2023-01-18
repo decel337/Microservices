@@ -6,7 +6,32 @@ const addGuest = require('../services/addGuest');
 const updateGuest = require('../services/updateGuest');
 const getGuest = require('../services/getGuest');
 
+let freeze = false;
+
 class GuestsController {
+    async freeze(req, res) {
+        freeze = !freeze;
+        res.status(200).send();
+    }
+
+    async getOne(req, res) {
+        if (freeze) {
+            await new Promise(r => setTimeout(r, 10000));
+        }
+
+        try {
+            const { id } = req.params
+            const [guest] = await getGuest(id);
+            if (guest) {
+                return res.json(guest);
+            } else {
+                res.status(404).json({ error: 'Guest not found' })
+            }
+        } catch (err) {
+            return res.status(400).send();
+        }
+    }
+
     async getAll(req, res) {
         try {
             const employers = await getAllGuests();
